@@ -1,0 +1,28 @@
+<div id="wrapper">
+
+  <h3>Readings</h3>
+
+  <mat-divider></mat-divider>
+
+  <div id="spinner" *ngIf="!isAdded">
+    <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+  </div>
+
+  <mat-nav-list>
+    <mat-list-item *ngFor="let reading of readings | async">
+      <h1 mat-line>
+        <span id="timestamp"> {{ reading?.timestamm }} </span>
+        <span> SBP: {{ reading?.sbpVal }} </span>
+        <span> DBP: {{ reading?.dbpVal }} </span>
+        <span> HR: {{ reading?.hrVal }} </span>
+      </h1>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <div id="endline">
+
+    <h5>< End of data ></h5>
+
+  </div>
+
+</div>

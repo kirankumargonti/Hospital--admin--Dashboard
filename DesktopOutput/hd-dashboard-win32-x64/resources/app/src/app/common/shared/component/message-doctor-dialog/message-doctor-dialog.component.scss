@@ -1,0 +1,15 @@
+.mat-form-field {
+  width: 100%;
+
+  textarea {
+    overflow-y: hidden;
+  }
+}
+
+.mat-raised-button {
+  float: right;
+
+  span {
+    margin-right: 10px;
+  }
+}

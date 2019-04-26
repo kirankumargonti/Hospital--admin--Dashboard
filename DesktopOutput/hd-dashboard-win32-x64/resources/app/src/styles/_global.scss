@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+html, body {
+  margin: 0;
+  color: antiquewhite;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: lighter;
+}
+
+*:focus, button:focus {
+  outline: none;
+}
+
+.wrap {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.fill-all {
+  flex: 1 1 auto;
+}
+mat-option,.mat-dialog-container,
+.mat-option-text {
+  background-color: rgb(11, 30, 73);
+  border: 1px solid white;
+}
+mat-option:hover,
+.mat-option-text {
+  background-color: rgb(11, 30, 73);
+}
+mat-option,
+.mat-option-text {
+  border-color: rgb(11, 30, 73);
+  
+}
+.mat-form-field-infix {
+  color: rgb(255, 255, 255);
+  text-transform: capitalize;
+  font-size: 20px;
+}
+.mat-raised-button
+{
+  background-color: rgb(243, 247, 234) !important;
+  color: black !important;
+}
+.mat-raised-button:hover{
+  background-color: rgb(88, 228, 233) !important;
+  color: rgb(0, 0, 0) !important;
+}
+/* Admin area */
+#app-content{
+background: linear-gradient(rgb(129, 178, 235), rgb(104, 221, 202));
+color: rgb(0, 0, 0);
+font-weight: bolder;
+font-size: 20px;
+}
+.mat-toolbar{
+  background-color: rgb(46, 51, 75);
+  color: rgb(255, 255, 255);
+  font-family: 'Great Vibes',
+  cursive;
+  font-size: 2rem;
+  
+  letter-spacing: 4px;
+
+}
+.mat-expansion-panel,
+.mat-menu-content,
+.mat-card {
+  background-color:rgb(11, 30, 73);
+  color: #FFFFFF;
+  box-sizing: border-box;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mat-input-element, .mat-expansion-panel-header-description {
+ color: #FFFFFF !important;
+}
+
+/* Close Admin area */
+/* Doctor panel */
+.mat-tab-link{
+  color: black !important;
+  font-size: 1rem;
+}
+/* close doctor area */
+@media (min-width: 576px) {
+  .wrap {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrap {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrap {
+    max-width: 1190px;
+  }
+}

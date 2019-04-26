@@ -1,0 +1,50 @@
+<div id="wrapper">
+  <form [formGroup]="form">
+
+    <mat-form-field color="accent" *ngIf="isPatient">
+      <mat-label *ngIf="patients.length === 0">Initializing patient list</mat-label>
+      <mat-label *ngIf="patients.length !== 0">Patient</mat-label>
+      <input matInput [matAutocomplete]="reactiveAutoPatient" formControlName="patient" (focus)="onFocus()">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear(true)"><mat-icon>clear</mat-icon></button>
+      <mat-autocomplete #reactiveAutoPatient [displayWith]="displayFn">
+        <mat-option *ngFor="let patient of reactivePatients | async" [value]="patient">
+          <span>{{ patient.fullname }}</span>
+          <span> ({{ patient.patientNo }}) </span>
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="patientError?.required">This is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <mat-label *ngIf="doctors.length === 0">Initializing doctor list</mat-label>
+      <mat-label *ngIf="doctors.length !== 0">Doctor</mat-label>
+      <input matInput [matAutocomplete]="reactiveAutoDoctor" formControlName="doctor" (focus)="onFocus()">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear(false)"><mat-icon>clear</mat-icon></button>
+      <mat-autocomplete #reactiveAutoDoctor [displayWith]="displayFn">
+        <mat-option *ngFor="let doctor of reactiveDoctors | async" [value]="doctor">
+          <span>{{ doctor.fullname }}</span>
+          <span> ({{ doctor.doctorNo }}) </span>
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="doctorError?.required">This is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent" *ngIf="isDoctor">
+      <mat-label *ngIf="patients.length === 0">Initializing patient list</mat-label>
+      <mat-label *ngIf="patients.length !== 0">Patient</mat-label>
+      <input matInput [matAutocomplete]="reactiveAutoPatient" formControlName="patient" (focus)="onFocus()">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear(true)"><mat-icon>clear</mat-icon></button>
+      <mat-autocomplete #reactiveAutoPatient [displayWith]="displayFn">
+        <mat-option *ngFor="let patient of reactivePatients | async" [value]="patient">
+          <span>{{ patient.fullname }}</span>
+          <span> ({{ patient.patientNo }}) </span>
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="patientError?.required">This is required.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="isFormInvalid" (click)="addDoctorToPatient()" *ngIf="isPatient">SUBMIT</button>
+    <button mat-raised-button [disabled]="isFormInvalid" (click)="addPatientToDoctor()" *ngIf="isDoctor">SUBMIT</button>
+
+  </form>
+</div>

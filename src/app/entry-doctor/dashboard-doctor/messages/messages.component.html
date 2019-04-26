@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content>
+
+    <mat-nav-list>
+
+      <mat-list-item *ngFor="let message of patientMessages | async">
+        <span mat-line id="message">{{ message?.message }}</span>
+        <span mat-line id="time">{{ message?.timestamp | timestamp }} &nbsp;&nbsp;|&nbsp;&nbsp; {{ message?.from }}</span>
+        <button mat-icon-button (click)="expandMessages(message)">
+          <mat-icon>fullscreen</mat-icon>
+        </button>
+      </mat-list-item>
+
+    </mat-nav-list>
+    
+    <div id="spinner" *ngIf="isLoading">
+      <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+    </div>
+
+  </mat-card-content>
+</mat-card>

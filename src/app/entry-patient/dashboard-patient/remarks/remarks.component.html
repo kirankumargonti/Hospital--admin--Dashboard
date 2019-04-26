@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content>
+
+    <mat-nav-list>
+
+      <mat-list-item *ngFor="let remark of doctorsRemarks | async">
+        <span mat-line id="message">{{ remark?.message }}</span>
+        <span mat-line id="time">{{ remark?.timestamp | timestamp }} &nbsp;&nbsp;|&nbsp;&nbsp; {{ remark?.from }}</span>
+        <button mat-icon-button (click)="expandRemarks(remark)">
+          <mat-icon>fullscreen</mat-icon>
+        </button>
+      </mat-list-item>
+
+    </mat-nav-list>
+    
+    <div id="spinner" *ngIf="isLoading">
+      <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+    </div>
+
+  </mat-card-content>
+</mat-card>

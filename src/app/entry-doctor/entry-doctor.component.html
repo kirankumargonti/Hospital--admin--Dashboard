@@ -1,0 +1,36 @@
+<mat-sidenav-container>
+
+  <mat-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar>
+      <div class="wrap">
+        <mat-toolbar>
+          <span routerLink="/">Dashboard</span>
+          <button mat-icon-button [mat-menu-trigger-for]="posXMenuOverlay">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-toolbar>
+      </div>
+    </mat-toolbar>
+
+    <div id="app-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<mat-menu xPosition="before" [overlapTrigger]="false" #posXMenuOverlay="matMenu">
+  <button mat-menu-item disabled>
+    <mat-icon>settings</mat-icon>
+    Settings
+  </button>
+  <button mat-menu-item (click)="onSignout()" >
+    <mat-icon>power_settings_new</mat-icon>
+    Sign out
+  </button>
+</mat-menu>

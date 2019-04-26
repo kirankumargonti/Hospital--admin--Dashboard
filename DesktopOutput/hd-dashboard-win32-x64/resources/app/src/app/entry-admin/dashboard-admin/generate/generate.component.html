@@ -1,0 +1,90 @@
+<div id="wrapper">
+  <form [formGroup]="form">
+
+
+    <!-- GENERATE PATIENR NUMBER FORM -->
+    <div formGroupName="patientForm" id="row-01" *ngIf="isPatient">
+
+      <div>
+        <button mat-raised-button type="button" (click)="onGenerate()">GENERATE</button>
+      </div>
+      <div>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Patient No.</mat-label>
+          <input matInput type="text" formControlName="random" #patientNo>
+          <button mat-icon-button matSuffix ngxClipboard [cbContent]="patientNo.value" color="accent" [disabled]="patientNo.value === ''"
+            [matTooltip]="'copy to clipboard'" [matTooltipPosition]="'below'" (click)="onClipboard()"><mat-icon>content_copy</mat-icon></button>
+        </mat-form-field>
+      </div>
+    <!-- END GENERATE PATIENR NUMBER FORM -->
+    </div>
+
+
+    <!-- GENERATE DOCTOR NUMBER FORM -->
+    <div formGroupName="doctorForm" id="row-02" *ngIf="isDoctor">
+
+      <div>
+        <button mat-raised-button type="button" (click)="onGenerate()">GENERATE</button>
+      </div>
+      <div>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Doctor No.</mat-label>
+          <input matInput type="text" formControlName="random" #doctorNo>
+          <button mat-icon-button matSuffix ngxClipboard [cbContent]="doctorNo.value" color="accent" [disabled]="doctorNo.value === ''"
+            [matTooltip]="'copy to clipboard'" [matTooltipPosition]="'below'" (click)="onClipboard()"><mat-icon>content_copy</mat-icon></button>
+        </mat-form-field>
+      </div>
+    <!-- END GENERATE DOCTOR NUMBER FORM -->
+    </div>
+
+
+    <!-- GENERATE ACCOUNT FORM -->
+    <div formGroupName="accountForm" id="row-03" *ngIf="isAccount">
+
+      <div class="inside">
+        <div>
+          <button mat-raised-button type="button" (click)="onGenerate('fullname')">GENERATE</button>
+        </div>
+        <div>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Fullname</mat-label>
+            <input matInput type="text" formControlName="fullname" #fullname>
+            <button mat-icon-button matSuffix ngxClipboard [cbContent]="fullname.value" color="accent" [disabled]="fullname.value === ''"
+              [matTooltip]="'copy to clipboard'" [matTooltipPosition]="'below'" (click)="onClipboard()"><mat-icon>content_copy</mat-icon></button>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="inside">
+        <div>
+          <button mat-raised-button type="button" (click)="onGenerate('email')">GENERATE</button>
+        </div>
+        <div>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Email address</mat-label>
+            <input matInput type="text" formControlName="email" #email>
+            <button mat-icon-button matSuffix ngxClipboard [cbContent]="email.value" color="accent" [disabled]="email.value === ''"
+              [matTooltip]="'copy to clipboard'" [matTooltipPosition]="'below'" (click)="onClipboard()"><mat-icon>content_copy</mat-icon></button>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="inside">
+        <div>
+          <button mat-raised-button type="button" (click)="onGenerate('password')">GENERATE</button>
+        </div>
+        <div>
+          <mat-form-field color="accent" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="text" formControlName="password" #password>
+            <button mat-icon-button matSuffix ngxClipboard [cbContent]="password.value" color="accent" [disabled]="password.value === ''"
+              [matTooltip]="'copy to clipboard'" [matTooltipPosition]="'below'" (click)="onClipboard()"><mat-icon>content_copy</mat-icon></button>
+          </mat-form-field>
+        </div>
+      </div>
+    <!-- END GENERATE ACCOUNT FORM -->
+    </div>
+
+
+  </form>
+</div>

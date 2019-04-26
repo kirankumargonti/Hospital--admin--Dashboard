@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+h2{
+   font-family: 'Great Vibes',
+   cursive;
+   font-size: 2rem;
+   letter-spacing: 6px;
+}
+#wrapper {
+  max-width: 300px;
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-raised-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,20 @@
+#wrapper .mat-card {
+  max-width: 300px;
+  margin: -24px;
+
+  .mat-card-content {
+    margin: 0;
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .mat-card-actions {
+    padding: 0;
+
+    .mat-raised-button {
+      width: 100%;
+    }
+  }
+}

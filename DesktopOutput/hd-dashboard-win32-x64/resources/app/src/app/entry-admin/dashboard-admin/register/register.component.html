@@ -1,0 +1,63 @@
+<div id="wrapper">
+  <form [formGroup]="form">
+
+    <mat-form-field color="accent" *ngIf="!isAdmin && !isDoctor">
+      <mat-label>Patient No.</mat-label>
+      <input matInput type="text" formControlName="patientNo">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear('patientNo')"><mat-icon>clear</mat-icon></button>
+      <mat-error *ngIf="patientNoError?.required">This is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent" *ngIf="!isAdmin && !isPatient">
+      <mat-label>Doctor No.</mat-label>
+      <input matInput type="text" formControlName="doctorNo">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear('doctorNo')"><mat-icon>clear</mat-icon></button>
+      <mat-error *ngIf="doctorNoError?.required">This is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent" *ngIf="!isAdmin">
+      <mat-label>Fullname</mat-label>
+      <input matInput type="text" formControlName="fullname">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear('fullname')"><mat-icon>clear</mat-icon></button>
+      <mat-error *ngIf="fullnameError?.required">This is required.</mat-error>
+      <mat-error *ngIf="fullnameError?.minlength || fullnameError?.containsNumber">Invalid name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear('email')"><mat-icon>clear</mat-icon></button>
+      <mat-error *ngIf="emailError?.required">This is required.</mat-error>
+      <mat-error *ngIf="emailError?.email">Invalid email.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <mat-label>Password</mat-label>
+      <input matInput type="text" formControlName="password">
+      <button mat-icon-button matSuffix color="accent" [matTooltip]="'clear'" (click)="onClear('password')"><mat-icon>clear</mat-icon></button>
+      <mat-error *ngIf="passwordError?.required">This is required.</mat-error>
+      <mat-error *ngIf="passwordError?.minlength">Password is too short.</mat-error>
+    </mat-form-field>
+
+    <div *ngIf="isPatientFormInvalid; else else1">
+      <button mat-raised-button [disabled]="isProcessing" (click)="patientCreate()" *ngIf="isPatient">SUBMIT</button>
+    </div>
+    <ng-template #else1>
+      <button mat-raised-button [disabled]="true" *ngIf="isPatient">SUBMIT</button>
+    </ng-template>
+    <div *ngIf="isDoctorFormInvalid; else else2">
+      <button mat-raised-button [disabled]="isProcessing" (click)="doctorCreate()" *ngIf="isDoctor">SUBMIT</button>
+    </div>
+    <ng-template #else2>
+      <button mat-raised-button [disabled]="true" *ngIf="isDoctor">SUBMIT</button>
+    </ng-template>
+    <div *ngIf="isAdminFormInvalid; else else3">
+      <button mat-raised-button [disabled]="isProcessing" (click)="adminCreate()" *ngIf="isAdmin">SUBMIT</button>
+    </div>
+    <ng-template #else3>
+      <button mat-raised-button [disabled]="true" *ngIf="isAdmin">SUBMIT</button>
+    </ng-template>
+
+
+  </form>
+</div>

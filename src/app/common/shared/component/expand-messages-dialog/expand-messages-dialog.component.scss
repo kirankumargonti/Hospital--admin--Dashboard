@@ -1,0 +1,12 @@
+#wrapper {
+  max-width: 500px;
+
+  p {
+    text-align: right;
+    margin: 0;
+  }
+
+  p:first-child {
+    text-align: left;
+  }
+}

@@ -1,0 +1,54 @@
+<div id="wrapper">
+
+  <mat-card>
+    <mat-card-title>
+      Set device time
+    </mat-card-title>
+    <mat-card-content>
+
+      <form [formGroup]="form">
+
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Patient</mat-label>
+          <input matInput type="text" formControlName="recipient">
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Time Duration</mat-label>
+          <mat-select formControlName="duration" (selectionChange)="onChange(dtn.value)" #dtn>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let value of duration" [value]="value">
+              <div *ngIf="value === 0.5">{{ value + ' hr' }}</div>
+              <div *ngIf="value === 1">{{ value + ' hr' }}</div>
+              <div *ngIf="value > 1">{{ value + ' hrs' }}</div>
+            </mat-option>
+          </mat-select>
+          <mat-error data-error *ngIf="form.get('duration').invalid">
+            <mat-error *ngIf="form.get('duration').errors['required']">This is required.</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Time Intervals Between</mat-label>
+          <mat-select formControlName="between">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let value of between" [value]="value">
+              <div *ngIf="value === 0.5">{{ value + ' hr' }}</div>
+              <div *ngIf="value === 1">{{ value + ' hr' }}</div>
+              <div *ngIf="value > 1">{{ value + ' hrs' }}</div>
+            </mat-option>
+          </mat-select>
+          <mat-error data-error *ngIf="form.get('between').invalid">
+            <mat-error *ngIf="form.get('between').errors['required']">This is required.</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="isDisabledButton" (click)="onSubmit()">SET</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

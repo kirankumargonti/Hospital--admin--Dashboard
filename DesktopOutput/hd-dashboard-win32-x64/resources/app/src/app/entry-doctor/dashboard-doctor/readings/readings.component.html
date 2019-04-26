@@ -1,0 +1,48 @@
+<div id="wrapper">
+
+  <div id="col-01">
+    <mat-card>
+      <mat-card-content>
+
+        <p>Account details</p>
+        <div id="spinner" *ngIf="isUndefined">
+          <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+        </div>
+        <h4>{{ doctorDetails?.doctorNo }}</h4>
+        <h4>{{ doctorDetails?.fullname }}</h4>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div id="col-02">
+
+    <div id="spinner" *ngIf="isLoadingList">
+      <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+    </div>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let patient of (doctorPatients | async); index as i" [expanded]="i === 0">
+        <mat-expansion-panel-header>
+          {{ patient?.fullname }} - No. {{ patient?.patientNo }}
+        </mat-expansion-panel-header>
+        <mat-card>
+          <mat-card-content>
+
+            <div>
+              <p>Patient details:</p>
+              <h5>{{ patient?.fullname }}</h5>
+              <h5>{{ patient?.patientNo }}</h5>
+              <h5>{{ patient | email | async }}</h5>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-raised-button (click)="setTime(patient)">SET DEVICE TIME</button> -->
+            <button mat-raised-button (click)="addRemarks(patient)">ADD REMARKS</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+.mat-card {
+  margin-top: 30px;
+  padding: 5px 12px;
+
+  #spinner {
+    width: 100%;
+    display: flex;
+
+    .mat-progress-spinner {
+      margin: auto;
+    }
+  }
+
+  .mat-nav-list {
+    padding: 0;
+
+    #time {
+      color: rgb(179, 179, 179);
+    }
+
+    .mat-icon {
+      font-size: 2em;
+      transform: translateX(-2px);
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.wrap .mat-toolbar {
+  padding: 0;
+
+  .mat-icon-button {
+    margin-left: auto;
+  }
+}
+
+#app-content {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: 575px) {
+  .mat-toolbar .wrap {
+    padding: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  #app-content {
+    height: calc(100vh - 56px);
+  }
+}

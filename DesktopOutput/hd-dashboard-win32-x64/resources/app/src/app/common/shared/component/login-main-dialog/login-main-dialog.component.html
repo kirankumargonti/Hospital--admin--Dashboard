@@ -1,0 +1,16 @@
+
+<div id="wrapper">
+  <h2>Hyperdetect</h2>
+  <mat-form-field color="accent">
+    <mat-label>Log in as</mat-label>
+    <mat-select [(ngModel)]="option" required="false" #optionControl="ngModel">
+      <mat-option>None</mat-option>
+      <mat-option value="patient">Patient</mat-option>
+      <mat-option value="doctor">Doctor</mat-option>
+      <mat-option value="admin">Admin</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="onProceed()">PROCEED</button>
+
+</div>

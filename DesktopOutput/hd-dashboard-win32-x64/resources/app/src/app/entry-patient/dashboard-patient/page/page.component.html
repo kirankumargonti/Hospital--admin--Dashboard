@@ -1,0 +1,40 @@
+<div id="wrapper">
+
+  <div id="col-01">
+
+    <mat-card>
+      <mat-card-content>
+
+        <p>Patient details</p>
+        <div id="spinner" *ngIf="patientDetails === undefined">
+          <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+        </div>
+        <h4>{{ patientDetails?.patientNo }}</h4>
+        <h4>{{ patientDetails?.fullname }}</h4>
+
+      </mat-card-content>
+    </mat-card>
+    </div>
+<div id="col-02">
+    <mat-card>
+      <mat-card-content>
+
+        <p>Assigned doctor/s</p>
+        <div id="spinner" *ngIf="isDoctorsLoading">
+          <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+        </div>
+        <mat-nav-list>
+          <mat-list-item *ngFor="let doctor of patientDoctors | async">
+            <h5 mat-line>{{ doctor?.fullname }}</h5>
+            <button mat-icon-button matTooltip="{{ 'Message Dr. ' + doctor?.fullname }}" (click)="messageDoctor(doctor)">
+              <mat-icon>comment</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-nav-list>
+
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+ 

@@ -1,0 +1,49 @@
+p {
+  margin-bottom: 7px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+#content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  #col-01 > p,
+  #col-02 > p {
+    color: rgb(179, 179, 179);
+  }
+
+  #col-01 {
+    margin-right: 30px;
+
+    > div {
+      margin-top: 10px;
+    }
+  }
+
+  #col-02 {
+    flex-grow: 1;
+
+    div > p:first-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+
+@media (max-width: 453px) {
+  #content {
+    flex-direction: column;
+  }
+
+  #col-01 {
+    flex-grow: 1;
+  }
+
+  #col-02 {
+    flex-grow: 1;
+  }
+}

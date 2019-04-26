@@ -1,0 +1,28 @@
+<div id="wrapper">
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Doctor</mat-label>
+      <input matInput type="text" formControlName="recipient">
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Message</mat-label>
+      <textarea
+        matInput cdkTextareaAutosize cdkAutosizeMaxRows="10"
+        maxLength="200" #textarea
+        formControlName="message"></textarea>
+      <mat-hint align="end">
+        {{ textarea.value.length }} / 200
+      </mat-hint>
+      <mat-hint *ngIf="isDisable" align="start">Message must be greater than 10 characters.</mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="isDisable">
+      <span>SEND</span>
+    </button>
+
+  </form>
+
+</div>
